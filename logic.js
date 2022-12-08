@@ -51,6 +51,7 @@ function declareSingleRound(roundOutcome, playerChoice, computerChoice) {
             break;
         case -1:
             console.log(`You lost - ${computerChoice} beats ${playerChoice}.`);
+            break;
         default:
             console.error(`Error - unexpected roundOutcome value.`);
     }
@@ -81,6 +82,7 @@ function declareMultipleRound(netRoundOutcome) {
             break;
         case (netRoundOutcome < 0):
             alert(`You lost! The computer beat you.`);
+            break;
         default:
             console.error("Error - netRoundOutcome wasn't a expected value.");
     }
