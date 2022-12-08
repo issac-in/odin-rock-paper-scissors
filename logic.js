@@ -54,7 +54,20 @@ function playRound(playerSelection, computerSelection) {
 
 function roundNotCanceled(roundOutcome) {}
 
-function declareMultipleRound(netOutcome) {}
+function declareMultipleRound(netOutcome) {
+    switch(true) {
+        case (netOutcome > 0):
+            alert(`You won! The computer lost to you.`);
+            break;
+        case (netOutcome === 0):
+            alert(`You tied! The computer tied you.`);
+            break;
+        case (netOutcome < 0):
+            alert(`You lost! The computer beat you.`);
+        default:
+            console.error("Error - netOutcome wasn't a expected value.");
+    }
+}
 
 function game(rounds = 5) {
     let netRoundWins = 0;
