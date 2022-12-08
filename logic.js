@@ -34,14 +34,17 @@ function noTieLogic(playerChoice, computerChoice) {
     return result;
 }
 
+// TODO: Improve readability of playRound() by abstraction
 function playRound(playerSelection, computerSelection) {
     let playerChoice = playerSelection.toLowerCase();
     let computerChoice = computerSelection.toLowerCase();
 
     // Result Logic
+    // TODO: Add a dedicated isTie() method due to needing to consider "" input
     let result = (playerChoice === computerChoice) ? -1 : noTieLogic(playerChoice, computerChoice);
 
     // Declaration Logic
+    // TODO: Abstract this to a method like declareSingleRound()
     let resultMessage;
     switch (result) {
         case 1:
@@ -55,6 +58,7 @@ function playRound(playerSelection, computerSelection) {
     }
 
     return resultMessage;
+    // TODO: Change output parameter to be suitable for roundOutcome in game()
 }
 
 function roundNotCanceled(roundOutcome) {
