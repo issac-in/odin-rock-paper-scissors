@@ -1,17 +1,17 @@
-function getComputerChoice() {
-    let computerChoice; // Random choice between "Rock", "Paper", or "Scissors"
+function getComputerSelection() {
+    let computerSelection; // Random selection between "Rock", "Paper", or "Scissors"
     let randomNumber = (Math.floor(Math.random() * 3)) + 1; // Random number between [1,3]
     switch (randomNumber) {
         case 1:
-            computerChoice = "Rock";
+            computerSelection = "Rock";
             break;
         case 2:
-            computerChoice = "Paper";
+            computerSelection = "Paper";
             break;
         case 3:
-            computerChoice = "Scissors";
+            computerSelection = "Scissors";
     }
-    return computerChoice;
+    return computerSelection;
 }
 
 function noTieLogic(playerChoice, computerChoice) {
