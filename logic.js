@@ -41,31 +41,36 @@ function noTieLogic(playerChoice, computerChoice) {
     return roundOutcome;
 }
 
-// TODO: Improve readability of playRound() by abstraction
+function declareSingleRound(roundOutcome, playerChoice, computerChoice) {
+    switch (roundOutcome) {
+        case 1:
+            console.log(`You won - ${playerChoice} beats ${computerChoice}`);
+            break;
+        case 0:
+            console.log(`You tied - ${computerChoice} ties ${playerChoice}.`);
+            break;
+        case -1:
+            console.log(`You lost - ${computerChoice} beats ${playerChoice}.`);
+        default:
+            console.error(`Error - unexpected roundOutcome value.`);
+    }
+}
+
+// DONE: Improve readability of playRound() by abstraction
 function playRound(playerSelection, computerSelection) {
     let playerChoice = playerSelection.toLowerCase();
     let computerChoice = computerSelection.toLowerCase();
 
     // roundOutcome Logic
-    // TODO: Add a dedicated isTie() method due to needing to consider "" input
+    // DONE: Add a dedicated isTie() method due to needing to consider "" input
     let roundOutcome = isTie() ? 0 : noTieLogic(playerChoice, computerChoice);
 
     // Declaration Logic
-    // TODO: Abstract this to a method like declareSingleRound()
-    let roundOutcomeMessage;
-    switch (roundOutcome) {
-        case 1:
-            roundOutcomeMessage = `You won - ${playerChoice} beats ${computerChoice}.`;
-            break;
-        case 0:
-            roundOutcomeMessage = `You lost - ${computerChoice} beats ${playerChoice}.`;
-            break;
-        case -1:
-            roundOutcomeMessage = `You tied - ${computerChoice} ties ${playerChoice}.`;
-    }
+    // DONE: Abstract this to a method like declareSingleRound()
+    declareSingleRound(roundOutcome, playerChoice, computerChoice);
 
-    return roundOutcomeMessage;
-    // TODO: Change output parameter to be suitable for roundOutcome in game()
+    // DONE: Change output parameter to be suitable for roundOutcome in game()
+    return roundOutcome;
 }
 
 function roundNotCanceled(roundOutcome) {
