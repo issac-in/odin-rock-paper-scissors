@@ -75,8 +75,7 @@ function game(rounds = 5) {
     let netRoundWins = 0;
     while (rounds > 0) {
         let roundOutcome; // TODO: Set up playRound() for this.
-        if (roundNotCanceled(roundOutcome)) { // TODO: Create roundNotCanceled()
-            // add it to the net round-wins, win/tie/lose +1 / 0 / -1
+        if (roundNotCanceled(roundOutcome)) {
             netRoundWins += roundOutcome;
             rounds--;
         }
