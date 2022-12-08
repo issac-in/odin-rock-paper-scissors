@@ -71,32 +71,31 @@ function roundNotCanceled(roundOutcome) {
     return (roundOutcome !== -2);
 }
 
-function declareMultipleRound(netOutcome) {
+function declareMultipleRound(netRoundOutcome) {
     switch(true) {
-        case (netOutcome > 0):
+        case (netRoundOutcome > 0):
             alert(`You won! The computer lost to you.`);
             break;
-        case (netOutcome === 0):
+        case (netRoundOutcome === 0):
             alert(`You tied! The computer tied you.`);
             break;
-        case (netOutcome < 0):
+        case (netRoundOutcome < 0):
             alert(`You lost! The computer beat you.`);
         default:
-            console.error("Error - netOutcome wasn't a expected value.");
+            console.error("Error - netRoundOutcome wasn't a expected value.");
     }
 }
 
 function game(rounds = 5) {
-    let netRoundWins = 0;
+    let netRoundOutcome = 0;
     while (rounds > 0) {
-        // TODO: Set up playRound() for this.
         let roundOutcome = playRound(getPlayerSelection(), getComputerSelection());
         if (roundNotCanceled(roundOutcome)) {
-            netRoundWins += roundOutcome;
+            netRoundOutcome += roundOutcome;
             rounds--;
         }
     }
-    declareMultipleRound(netOutcome);
+    declareMultipleRound(netRoundOutcome);
 }
 
 game();
