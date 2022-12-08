@@ -51,3 +51,15 @@ function playRound(playerSelection, computerSelection) {
 
     return resultMessage;
 }
+
+function game() { // Input parameter maybe for rounds
+    // Keep track of net round-wins 
+    // For every round we play
+        // Keep track of the round outcome
+        // If a round is considered valid
+            // add it to the net round-wins, win/tie/lose +1 / 0 / -1
+        // Increment/decrement to keep track of rounds played
+    // At the end of all rounds, declare the result of the multiple rounds
+}
+
+game();
