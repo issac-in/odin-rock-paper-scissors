@@ -52,13 +52,21 @@ function playRound(playerSelection, computerSelection) {
     return resultMessage;
 }
 
-function game() { // Input parameter maybe for rounds
+function game(rounds = 5) { // Default parameter value according to TOP specs
     // Keep track of net round-wins 
+    let netRoundWins = 0;
     // For every round we play
+    while (rounds > 0) {
         // Keep track of the round outcome
+        let roundOutcome; // TODO: Set up playRound() for this.
         // If a round is considered valid
+        if (roundNotCanceled(roundOutcome)) { // TODO: Create roundNotCanceled()
             // add it to the net round-wins, win/tie/lose +1 / 0 / -1
-        // Increment/decrement to keep track of rounds played
+            netRoundWins += roundOutcome;
+            // Increment/decrement to keep track of rounds played
+            rounds--;
+        }
+    }
     // At the end of all rounds, declare the result of the multiple rounds
 }
 
