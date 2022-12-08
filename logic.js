@@ -19,6 +19,10 @@ function getComputerSelection() {
     return computerSelection;
 }
 
+function isTie(playerChoice, computerChoice) {
+    return (playerChoice === "") ? true : (playerChoice === computerChoice);
+}
+
 function noTieLogic(playerChoice, computerChoice) {
     let result;
     switch (playerChoice) {
@@ -41,7 +45,7 @@ function playRound(playerSelection, computerSelection) {
 
     // Result Logic
     // TODO: Add a dedicated isTie() method due to needing to consider "" input
-    let result = (playerChoice === computerChoice) ? -1 : noTieLogic(playerChoice, computerChoice);
+    let result = isTie() ? 0 : noTieLogic(playerChoice, computerChoice);
 
     // Declaration Logic
     // TODO: Abstract this to a method like declareSingleRound()
