@@ -74,7 +74,9 @@ function declareMultipleRound(netOutcome) {
 function game(rounds = 5) {
     let netRoundWins = 0;
     while (rounds > 0) {
-        let roundOutcome; // TODO: Set up playRound() for this.
+        // TODO: Set up playRound() for this.
+        // TODO: Add a getPlayerSelection() for the playerSelection parameter
+        let roundOutcome = playRound(playerSelection, getComputerSelection());
         if (roundNotCanceled(roundOutcome)) {
             netRoundWins += roundOutcome;
             rounds--;
