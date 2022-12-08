@@ -24,18 +24,18 @@ function isTie(playerChoice, computerChoice) {
 }
 
 function noTieLogic(playerChoice, computerChoice) {
-    let result;
+    let roundOutcome;
     switch (playerChoice) {
         case "rock":
-            result = (computerChoice === "scissors") ? 1 : 0;
+            roundOutcome = (computerChoice === "scissors") ? 1 : 0;
             break;
         case "paper":
-            result = (computerChoice === "rock") ?  1 : 0;
+            roundOutcome = (computerChoice === "rock") ?  1 : 0;
             break;
         case "scissors":
-            result = (computerChoice === "paper") ? 1 : 0;
+            roundOutcome = (computerChoice === "paper") ? 1 : 0;
     }
-    return result;
+    return roundOutcome;
 }
 
 // TODO: Improve readability of playRound() by abstraction
@@ -43,25 +43,25 @@ function playRound(playerSelection, computerSelection) {
     let playerChoice = playerSelection.toLowerCase();
     let computerChoice = computerSelection.toLowerCase();
 
-    // Result Logic
+    // roundOutcome Logic
     // TODO: Add a dedicated isTie() method due to needing to consider "" input
-    let result = isTie() ? 0 : noTieLogic(playerChoice, computerChoice);
+    let roundOutcome = isTie() ? 0 : noTieLogic(playerChoice, computerChoice);
 
     // Declaration Logic
     // TODO: Abstract this to a method like declareSingleRound()
-    let resultMessage;
-    switch (result) {
+    let roundOutcomeMessage;
+    switch (roundOutcome) {
         case 1:
-            resultMessage = `You won - ${playerChoice} beats ${computerChoice}.`;
+            roundOutcomeMessage = `You won - ${playerChoice} beats ${computerChoice}.`;
             break;
         case 0:
-            resultMessage = `You lost - ${computerChoice} beats ${playerChoice}.`;
+            roundOutcomeMessage = `You lost - ${computerChoice} beats ${playerChoice}.`;
             break;
         case -1:
-            resultMessage = `You tied - ${computerChoice} ties ${playerChoice}.`;
+            roundOutcomeMessage = `You tied - ${computerChoice} ties ${playerChoice}.`;
     }
 
-    return resultMessage;
+    return roundOutcomeMessage;
     // TODO: Change output parameter to be suitable for roundOutcome in game()
 }
 
