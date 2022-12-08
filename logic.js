@@ -1,3 +1,8 @@
+function getPlayerSelection() {
+    let playerSelection = prompt("Choose: Rock, Paper, or Scissors");
+    return (playerSelection === null) ? "null" : playerSelection;
+}
+
 function getComputerSelection() {
     let computerSelection; // Random selection between "Rock", "Paper", or "Scissors"
     let randomNumber = (Math.floor(Math.random() * 3)) + 1; // Random number between [1,3]
@@ -75,8 +80,7 @@ function game(rounds = 5) {
     let netRoundWins = 0;
     while (rounds > 0) {
         // TODO: Set up playRound() for this.
-        // TODO: Add a getPlayerSelection() for the playerSelection parameter
-        let roundOutcome = playRound(playerSelection, getComputerSelection());
+        let roundOutcome = playRound(getPlayerSelection(), getComputerSelection());
         if (roundNotCanceled(roundOutcome)) {
             netRoundWins += roundOutcome;
             rounds--;
