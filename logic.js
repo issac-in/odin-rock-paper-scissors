@@ -52,6 +52,10 @@ function playRound(playerSelection, computerSelection) {
     return resultMessage;
 }
 
+function roundNotCanceled(roundOutcome) {}
+
+function declareMultipleRound(netOutcome) {}
+
 function game(rounds = 5) {
     let netRoundWins = 0;
     while (rounds > 0) {
