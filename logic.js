@@ -27,13 +27,13 @@ function noTieLogic(playerChoice, computerChoice) {
     let roundOutcome;
     switch (playerChoice) {
         case "rock":
-            roundOutcome = (computerChoice === "scissors") ? 1 : 0;
+            roundOutcome = (computerChoice === "scissors") ? 1 : -1;
             break;
         case "paper":
-            roundOutcome = (computerChoice === "rock") ?  1 : 0;
+            roundOutcome = (computerChoice === "rock") ?  1 : -1;
             break;
         case "scissors":
-            roundOutcome = (computerChoice === "paper") ? 1 : 0;
+            roundOutcome = (computerChoice === "paper") ? 1 : -1;
             break;
         default:
             roundOutcome = -2; // Indicate invalid player input (e.g. "null")
@@ -60,7 +60,7 @@ function playRound(playerSelection, computerSelection) {
     let playerChoice = playerSelection.toLowerCase();
     let computerChoice = computerSelection.toLowerCase();
 
-    let roundOutcome = isTie() ? 0 : noTieLogic(playerChoice, computerChoice);
+    let roundOutcome = isTie(playerChoice, computerChoice) ? 0 : noTieLogic(playerChoice, computerChoice);
 
     declareSingleRound(roundOutcome, playerChoice, computerChoice);
 
