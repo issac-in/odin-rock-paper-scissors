@@ -34,6 +34,9 @@ function noTieLogic(playerChoice, computerChoice) {
             break;
         case "scissors":
             roundOutcome = (computerChoice === "paper") ? 1 : 0;
+            break;
+        default:
+            roundOutcome = -2; // Indicate invalid player input (e.g. "null")
     }
     return roundOutcome;
 }
