@@ -52,7 +52,9 @@ function playRound(playerSelection, computerSelection) {
     return resultMessage;
 }
 
-function roundNotCanceled(roundOutcome) {}
+function roundNotCanceled(roundOutcome) {
+    return (roundOutcome !== -2);
+}
 
 function declareMultipleRound(netOutcome) {
     switch(true) {
