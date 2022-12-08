@@ -68,6 +68,7 @@ function game(rounds = 5) { // Default parameter value according to TOP specs
         }
     }
     // At the end of all rounds, declare the result of the multiple rounds
+    declareMultipleRound(netOutcome);
 }
 
 game();
