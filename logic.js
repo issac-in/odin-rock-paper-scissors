@@ -56,20 +56,14 @@ function declareSingleRound(roundOutcome, playerChoice, computerChoice) {
     }
 }
 
-// DONE: Improve readability of playRound() by abstraction
 function playRound(playerSelection, computerSelection) {
     let playerChoice = playerSelection.toLowerCase();
     let computerChoice = computerSelection.toLowerCase();
 
-    // roundOutcome Logic
-    // DONE: Add a dedicated isTie() method due to needing to consider "" input
     let roundOutcome = isTie() ? 0 : noTieLogic(playerChoice, computerChoice);
 
-    // Declaration Logic
-    // DONE: Abstract this to a method like declareSingleRound()
     declareSingleRound(roundOutcome, playerChoice, computerChoice);
 
-    // DONE: Change output parameter to be suitable for roundOutcome in game()
     return roundOutcome;
 }
 
