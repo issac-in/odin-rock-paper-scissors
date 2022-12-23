@@ -1,4 +1,6 @@
 // reusable data-cy declarations
+const largeHeader = "[data-cy='large-header']";
+const mediumHeader = "[data-cy='medium-header']";
 const firstToMode = "[data-cy='first-to-mode']";
 const bestOfMode = "[data-cy='best-of-mode']";
 const playButton = "[data-cy='play-button']";
@@ -208,5 +210,18 @@ describe("Rock Paper Scissors page", () => {
     confirmDotFrequency(playerOutcomes, 5);
 
     confirmDotFrequency(computerOutcomes, 5);
+  });
+
+  it("6. header content changes based on viewport width", () => {
+    cy.viewport(1920, 1080); // Set to large viewport
+    cy.get(largeHeader).and("have.css", "display", "block")
+    cy.get(mediumHeader).and("have.css", "display", "none");
+
+    cy.viewport(768, 1024); // Set to medium viewport
+    cy.get(largeHeader).and("have.css", "display", "none")
+    cy.get(mediumHeader).and("have.css", "display", "block");
+
+    cy.viewport(375, 760); // Set to small viewport
+    cy.get("[data-cy='header']").and("have.css", "display", "none")
   });
 });
