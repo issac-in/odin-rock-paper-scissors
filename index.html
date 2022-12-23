@@ -26,6 +26,16 @@
       <main data-cy="main">
         <section>
           <h2>Choose Gamemode</h2>
+          <ul class="modeList">
+            <li>
+              <input type="radio" name="modes" id="first-to" data-cy="first-to-mode">
+              <label for="first-to">First to 5 Wins</label>
+            </li>
+            <li>
+              <input type="radio" name="modes" id="best-of" data-cy="best-of-mode">
+              <label for="best-of">Best of 5 Rounds</label>
+            </li>
+          </ul>
         </section>
         <div class="game"></div>
         <section class="results"></section>
