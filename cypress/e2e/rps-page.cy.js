@@ -88,7 +88,7 @@ describe("Rock Paper Scissors page", () => {
       .and("have.class", "accent");
   });
 
-  it.skip("2. shows you what gamemode you've selected at all times",() => {
+  it("2. shows you what gamemode you've selected at all times",() => {
     cy.get(firstToMode)
       .should("not.be.checked")
       .click();

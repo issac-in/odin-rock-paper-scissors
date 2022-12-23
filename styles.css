@@ -28,6 +28,15 @@
 }
 
 /* HEADINGS */
+h2 {
+  /* Display & Box Model */
+  margin-top: 12px;
+}
+
+p {
+  /* Text */
+  font-size: 16px;
+}
 
 /* HEADER */
 header {
@@ -90,6 +99,77 @@ header .logo img {
 }
 
 /* MAIN */
+main {
+  /* Display & Box Model */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: calc(100vh - 64px);
+  padding: 16px 32px;
+  margin: 64px 0px 0px;
+
+  /* Color */
+  background-color: var(--primary-color);
+}
+
+main ul {
+  /* Display & Box Model */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+
+  /* Other */
+  list-style: none;
+}
+
+main li {
+  /* Display & Box Model */
+  margin: 8px 0px;
+}
+
+main .modeList {
+  /* Display & Box Model */
+  width: calc(100vw - 64px);
+}
+
+main .modeList li {
+  /* Display & Box Model */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 0 1 160px;
+  height: 64px;
+  border-radius: 12px;
+  margin: 16px 0px;
+
+  /* Color */
+  background-color: var(--secondary-color);
+  border: solid var(--font-color);
+}
+
+main .modeList li:has(> input:checked) {
+  border: solid var(--accent-color);
+  box-shadow: 0 0 0.5rem var(--accent-color);
+}
+
+main .modeList li input {
+  /* Positioning */
+  position: absolute;
+
+  /* Other */
+  opacity: 0;
+}
+
+main .modeList li label {
+  /* Display & Box Model */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  margin: 8px;
+}
 
 /* FOOTER */
 footer {
@@ -128,5 +208,29 @@ footer {
   /* If screen is large */
   h1 .mediumDisplay {
     display: none;
+  }
+}
+
+@media screen and (pointer: coarse) {
+  /* If screen is only touch-screen */
+  header > img:active {
+    filter: var(--switch-hover-filter);
+  }
+
+  main .modeList li:active {
+    /* Color */
+    box-shadow: 0 0 0.5rem var(--font-color);
+  }
+}
+
+@media screen and (pointer: fine) {
+  /* If screen has a mouse pointer */
+  header > img:hover {
+    filter: var(--switch-hover-filter);
+  }
+
+  main .modeList li:hover {
+    /* Color */
+    box-shadow: 0 0 0.5rem var(--font-color);
   }
 }
