@@ -76,7 +76,7 @@ describe("Rock Paper Scissors page", () => {
     cy.visit("/");
   });
 
-  it("1. prevents you from playing the game before selecting a gamemode", () => {
+  it.only("1. prevents you from playing the game before selecting a gamemode", () => {
     cy.get(resultsOutcome)
       .contains("Complete a RPS gamemode!")
       .and("not.have.class", "accent");

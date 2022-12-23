@@ -101,3 +101,52 @@ function game(rounds = 5) {
 }
 
 game();
+
+// ABOVE IS OG CODE - BELOW IS REWORK TERRITORY
+/**
+ * RPS Logic Flow from Play Button
+ * 1. Click the Play button to trigger, onClickPlay(),which addEventListener to run
+ * 2. checkSelectedMode(), which will check the status of the gamemode radio buttons
+ *    2A. If neither are checked, let user know to select gamemode first
+ *    2B. If one of them is checked, get the display ready for the game, and disable the radio buttons
+ *    2C. Then, depending on the gamemode checked, update the resultsOutcome accordingly
+ *      2CA. I should probably keep track of gamemode as a global variable
+ *    2D. Then, run the game via playGame().
+ * 3. In playGame(), activate the player controls for rock, paper, scissors
+ *    3A. Then, addEventListener to each control to trigger playerChoiceEvent
+ * 4. playerChoiceEvent() should pull the control's id to determine player choice
+ *    4A. And pull computer's choice via random choice
+ *    4B. Then, get the round outcome from playRound(playerChoice, computerChoice)
+ *      4BA. This will utilize isTie() and noTieLogic()
+ *    4C. Based on round outcome, update numerical score and outcome strings
+ *      4CA. Two separate functioms, updateScores() & updateOutcomes()
+ *    4D. Check if the end of a game has been achieved
+ *      4DA. If it has, declare the end of the game, and disable player choices again.
+ * 
+ * RPS Logic Flow from Reset Button
+ * 1. Click the Reset button to trigger, onClickReset(), which addEventListener to run
+ * 2. resetRPS(), which basically needs to ensure everything is forcibly cleared and hidden
+ *    2A. Reset the gamemode radio buttons
+ *    2B. Reset the game scores
+ *    2C. Reset the game outcomes
+ *    2D. Reset the game display
+ *    2E. Disable player controls
+ *    2F. Remove event listeners
+ *    2G. Reset the final outcome text
+ *    2H. Reset the play button
+ *    2I. Reset the reset button text
+ * 
+ * RPS Logic Flow from Theme Button
+ * 1. Click the Theme button to trigger onClickTheme(), which addEventListener to run
+ * 2. switchTheme(), which will default to dark mode color scheme first, but if clicked
+ * will change to the light mode color scheme, and change the theme icon accordingly
+ * 
+ * As an additional plan, which is to store the preferred theme of user in localStorage
+ * and set the color scheme accordingly on load
+ * 
+ * Overall Logic Flow:
+ * onClickPlay()
+ * onClickReset()
+ * onClickTheme()
+ * loadPreferredTheme()
+ */
