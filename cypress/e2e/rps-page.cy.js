@@ -1,3 +1,5 @@
+const firstToMode = "[data-cy='first-to-mode']";
+const bestOfMode = "[data-cy='best-of-mode']";
 const playButton = "[data-cy='play-button']";
 const resultsOutcome = "[data-cy='results-outcome']";
 
@@ -16,5 +18,19 @@ describe("Rock Paper Scissors page", () => {
     cy.get(resultsOutcome)
       .contains("Please select a gamemode first!")
       .and("have.class", "accent");
+  });
+
+  it("2. shows you what gamemode you've selected at all times",() => {
+    cy.get(firstToMode)
+      .should("not.be.checked")
+      .click();
+
+    cy.get(firstToMode).should("be.checked");
+
+    cy.get(bestOfMode)
+      .should("not.be.checked")
+      .click();
+
+    cy.get(bestOfMode).should("be.checked");
   });
 });
