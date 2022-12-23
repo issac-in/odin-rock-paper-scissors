@@ -76,7 +76,7 @@ describe("Rock Paper Scissors page", () => {
     cy.visit("/");
   });
 
-  it.only("1. prevents you from playing the game before selecting a gamemode", () => {
+  it("1. prevents you from playing the game before selecting a gamemode", () => {
     cy.get(resultsOutcome)
       .contains("Complete a RPS gamemode!")
       .and("not.have.class", "accent");
@@ -216,7 +216,7 @@ describe("Rock Paper Scissors page", () => {
     confirmDotFrequency(computerOutcomes, 5);
   });
 
-  it("6. header content changes based on viewport width", () => {
+  it.only("6. header content changes based on viewport width", () => {
     cy.viewport(1920, 1080); // Set to large viewport
     cy.get(largeHeader).and("have.css", "display", "block")
     cy.get(mediumHeader).and("have.css", "display", "none");
