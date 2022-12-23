@@ -1,7 +1,15 @@
+// reusable data-cy declarations
 const firstToMode = "[data-cy='first-to-mode']";
 const bestOfMode = "[data-cy='best-of-mode']";
 const playButton = "[data-cy='play-button']";
+const gameDisplay = "[data-cy='game-display']";
+const playerControls = "[data-cy='player-controls']";
 const resultsOutcome = "[data-cy='results-outcome']";
+const resetButton = "[data-cy='reset-button']";
+
+// other variable declarations
+const playerOutcomes = "player-outcomes";
+const computerOutcomes = "computer-outcomes";
 
 function recursiveGame() {
   cy.get("[data-cy='rock-button']").then(($rockButton) => {
@@ -130,5 +138,75 @@ describe("Rock Paper Scissors page", () => {
     cy.get(resultsOutcome).should("have.class", "accent");
 
     evaluateBestOf();
+  });
+
+  it("5. reset button resets gamemode selection", () => {
+    cy.get(bestOfMode).click();
+
+    cy.get(bestOfMode).should("be.checked");
+
+    cy.get(resetButton).click();
+
+    cy.get(bestOfMode).should("not.be.checked");
+
+    cy.get(firstToMode).should("not.be.checked");
+  });
+
+  it("\u30005A. reset button resets score & hides game", () => {
+    cy.get(bestOfMode).click();
+    
+    cy.get(playButton).click();
+
+    cy.get(gameDisplay).should("have.css", "display", "flex");
+
+    cy.get(playerControls).should("have.css", "display", "flex");
+
+    cy.get("[data-cy='rock-button']").click();
+
+    cy.get("[data-cy='paper-button']").click();
+
+    cy.get("[data-cy='scissors-button']").click();
+
+    confirmDotFrequency(playerOutcomes, 2);
+
+    confirmDotFrequency(computerOutcomes, 2);
+
+    cy.get(resetButton).click();
+
+    cy.get(gameDisplay).should("have.css", "display", "none");
+
+    cy.get(playerControls).should("have.css", "display", "none");
+
+    cy.get(bestOfMode).click();
+    
+    cy.get(playButton).click();
+    
+    confirmDotFrequency(playerOutcomes, 5);
+
+    confirmDotFrequency(computerOutcomes, 5);
+  });
+
+  it("\u30005B. reset button changes to 'play again' at the end of the game, keeping same functionality", () => {
+    cy.get(firstToMode).click();
+
+    cy.get(playButton).click();
+
+    recursiveGame();
+
+    cy.get(resetButton)
+      .contains("Play Again")
+      .click();
+
+    cy.get(gameDisplay).should("have.css", "display", "none");
+
+    cy.get(playerControls).should("have.css", "display", "none");
+
+    cy.get(firstToMode).click();
+    
+    cy.get(playButton).click();
+    
+    confirmDotFrequency(playerOutcomes, 5);
+
+    confirmDotFrequency(computerOutcomes, 5);
   });
 });
