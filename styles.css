@@ -23,3 +23,23 @@
 /* FOOTER */
 
 /* MEDIA QUERIES */
+@media screen and (max-width: 375px) {
+  /* If screen is small */
+  h1 {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  /* If screen is medium */
+  h1 .largeDisplay {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 769px) {
+  /* If screen is large */
+  h1 .mediumDisplay {
+    display: none;
+  }
+}
