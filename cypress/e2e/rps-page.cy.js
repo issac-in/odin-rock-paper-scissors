@@ -5,9 +5,13 @@ const firstToMode = "[data-cy='first-to-mode']";
 const bestOfMode = "[data-cy='best-of-mode']";
 const playButton = "[data-cy='play-button']";
 const gameDisplay = "[data-cy='game-display']";
+const playerScore = "[data-cy='player-score']";
+const computerScore = "[data-cy='computer-score']";
 const playerControls = "[data-cy='player-controls']";
 const resultsOutcome = "[data-cy='results-outcome']";
 const resetButton = "[data-cy='reset-button']";
+const main = "[data-cy='main']";
+const footer = "[data-cy='footer']";
 
 // other variable declarations
 const playerOutcomes = "player-outcomes";
@@ -223,5 +227,29 @@ describe("Rock Paper Scissors page", () => {
 
     cy.viewport(375, 760); // Set to small viewport
     cy.get("[data-cy='header']").and("have.css", "display", "none")
+  });
+
+  it("7. changes between dark & light themes on click", () => {
+    cy.get(bestOfMode).click();
+
+    cy.get(playButton).click();
+
+    // By default, dark theme is initialized first
+    cy.get(footer)
+      .should("have.css", "background-color", "rgb(34, 40, 49)") // #222831
+      .and("have.css", "color", "rgb(238, 238, 238)"); // #EEEEEE
+    cy.get(main).should("have.css", "background-color", "rgb(57, 62, 70)"); // #393E46
+    cy.get(playerScore).should("have.css", "color", "rgb(0, 219, 172)"); // #00DBAC
+    cy.get(computerScore).should("have.css", "color", "rgb(255, 211, 105)"); //#FFD369
+    
+    cy.get("[data-cy='theme-switch']").click();
+
+    // Now check the light theme is applied properly
+    cy.get(footer)
+    .should("have.css", "background-color", "rgb(126, 130, 135)") // #7e8287
+    .and("have.css", "color", "rgb(34, 40, 49)"); // #222831
+    cy.get(main).should("have.css", "background-color", "rgb(238, 238, 238)"); // #EEEEEE
+    cy.get(playerScore).should("have.css", "color", "rgb(109, 163, 77)"); // #6da34d
+    cy.get(computerScore).should("have.css", "color", "rgb(255, 136, 17)"); //#ff8811
   });
 });
