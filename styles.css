@@ -22,11 +22,72 @@
   /* Text */
   font-family: Roboto, Helvetica, Arial, sans-serif;
   text-align: center;
+
+  /* Color */
+  color: var(--font-color);
 }
 
 /* HEADINGS */
 
 /* HEADER */
+header {
+  /* Positioning */
+  position: fixed;
+  top: 0%;
+
+  /* Display & Box Model */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  height: 80px;
+  padding: 8px 32px;
+
+  /* Color */
+  background-color: var(--secondary-color);
+}
+
+header .logo-container {
+  /* Display & Box Model */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header .logo {
+  /* Display & Box Model */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 160px;
+  height: 48px;
+  border-radius: 12px;
+  margin-right: 16px;
+
+  /* Color */
+  background-color: var(--font-color);
+}
+
+header img {
+  /* Display & Box Model */
+  height: auto;
+  width: 48px;
+
+  /* Color */
+  filter: var(--logo-filter);
+}
+
+header > img {
+  /* Color */
+  filter: var(--switch-filter);
+}
+
+header .logo img {
+  /* Display & Box Model */
+  width: 40px;
+  margin: 5px;
+}
 
 /* MAIN */
 
