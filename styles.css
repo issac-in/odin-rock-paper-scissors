@@ -1,7 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
 /* PALETTE */
-
+:root { /* data-theme = "dark" */
+  --primary-color: rgb(57, 62, 70);
+  --secondary-color: rgb(34, 40, 49);
+  --tertiary-color: rgba(34, 40, 49, 0.502);
+  --font-color: rgb(238, 238, 238);
+  --accent-color: rgb(255, 211, 105);
+  --player-color: rgb(0, 219, 172);
+  --disabled-color: rgb(126, 130, 135);
+  --play-bg-color:rgb(234, 233, 233);
+}
 
 /* GENERAL & SHARED CSS */
 * {
