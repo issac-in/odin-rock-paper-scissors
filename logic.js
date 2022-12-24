@@ -126,6 +126,17 @@
  * Overall Logic Flow:
  * onClickPlay()
  */
+function playerChoiceEvent() {
+  const computerChoice = getComputerChoice();
+  let roundOutcome = playRound(this.id, computerChoice);
+  updateScores(roundOutcome);
+  updateOutcomes(roundOutcome);
+  if (isEnd()) {
+    declareEnd();
+    disablePlayerChoices();
+  }
+}
+
 function playGame() {
   const choices = document.querySelectorAll("#choices button");
   choices.forEach((playerChoice) => {
