@@ -128,6 +128,10 @@
  */
 let ofGameMode; // CRITICAL VARIABLE for multiple functions, do not delete!
 
+function isTie(playerChoice, computerChoice) {
+  return playerChoice === computerChoice;
+}
+
 function noTieLogic(playerChoice, computerChoice) {
   let roundOutcome;
   switch (playerChoice) {
