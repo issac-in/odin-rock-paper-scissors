@@ -126,6 +126,38 @@
  * Overall Logic Flow:
  * onClickPlay()
  */
+function updateOutcomes(roundOutcome) {
+  let playerOutcomes = document.getElementById("playerOutcomes");
+  let computerOutcomes = document.getElementById("computerOutcomes");
+  switch (ofGameMode) {
+    case "first to":
+      switch (roundOutcome) {
+        case 1:
+          playerOutcomes.innerText = playerOutcomes.innerText.replace("•", "O");
+          break;
+        case 0:
+          break;
+        case -1:
+          computerOutcomes.innerText = computerOutcomes.innerText.replace("•", "O");
+      }
+      break;
+    case "best of":
+      switch (roundOutcome) {
+        case 1:
+          playerOutcomes.innerText = playerOutcomes.innerText.replace("•", "O");
+          computerOutcomes.innerText = computerOutcomes.innerText.replace("•", "X");
+          break;
+        case 0:
+          playerOutcomes.innerText = playerOutcomes.innerText.replace("•", "=");
+          computerOutcomes.innerText = computerOutcomes.innerText.replace("•", "=");
+          break;
+        case -1:
+          playerOutcomes.innerText = playerOutcomes.innerText.replace("•", "X");
+          computerOutcomes.innerText = computerOutcomes.innerText.replace("•", "O");
+      }
+  }
+}
+
 function isEnd() {
   switch (ofGameMode) {
     case "first to":
