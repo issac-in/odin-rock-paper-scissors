@@ -128,6 +128,24 @@
  */
 let ofGameMode; // CRITICAL VARIABLE for multiple functions, do not delete!
 
+function noTieLogic(playerChoice, computerChoice) {
+  let roundOutcome;
+  switch (playerChoice) {
+    case "rock":
+      roundOutcome = (computerChoice === "scissors") ? 1 : -1
+      break;
+    case "paper":
+      roundOutcome = (computerChoice === "rock") ? 1 : -1;
+      break;
+    case "scissors":
+      roundOutcome = (computerChoice === "paper") ? 1 : -1;
+      break;
+    default:
+      console.error("Invalid playerChoice given.");
+  }
+  return roundOutcome;
+}
+
 function playRound(playerChoice, computerChoice) {
   let roundOutcome;
   switch (ofGameMode) {
