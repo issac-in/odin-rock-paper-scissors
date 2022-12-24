@@ -173,4 +173,17 @@ function onClickTheme() {
   }
 }
 
+function checkTheme() {
+  const imgSwitch = document.getElementById("theme-switch");
+  const currentTheme = localStorage.getItem("theme") ? localStorage.getItem("theme") : null;
+  if (currentTheme) {
+    document.documentElement.setAttribute("data-theme", currentTheme);
+    if (currentTheme === "light") {
+      imgSwitch.src = "./assets/icons8-sun.svg";
+      imgSwitch.alt = "light mode icon";
+    }
+  }
+}
+
 onClickTheme();
+checkTheme();
