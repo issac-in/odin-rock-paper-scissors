@@ -140,6 +140,50 @@
  * onClickPlay()
  * onClickReset()
  */
+function resetRPS() {
+  // Reset the Game Mode Buttons
+  document.getElementById("first-to").removeAttribute("disabled");
+  document.getElementById("first-to").checked = false;
+  document.getElementById("best-of").removeAttribute("disabled");
+  document.getElementById("best-of").checked = false;
+
+  // Reset the game scores
+  document.getElementById("player-counter").innerText = 0;
+  document.getElementById("computer-counter").innerText = 0;
+
+  // Reset the game outcomes
+  document.getElementById("playerOutcomes").innerText = document.getElementById("playerOutcomes").innerText.replaceAll(/[OX=]/g, "•");
+  document.getElementById("computerOutcomes").innerText = document.getElementById("computerOutcomes").innerText.replaceAll(/[OX=]/g, "•")
+
+  // Reset the game display
+  const figures = document.querySelectorAll(".figureContainer");
+  figures.forEach((figure) => {
+    console.log(figure.style.display);
+    figure.style.display = "none";
+  });
+  const choices = document.getElementById("choices");
+  console.log(choices.style.display);
+  choices.style.display = "none";
+
+  // Disable player controls and remove event listeners
+  const choiceButtons = document.querySelectorAll("#choices button");
+  choiceButtons.forEach((playerChoice) => {
+    playerChoice.setAttribute("disabled", true);
+    playerChoice.removeEventListener("click", playerChoiceEvent);
+  });
+
+  // Reset the final outcome
+  const outcome = document.getElementById("outcome");
+  outcome.innerText = "Complete a RPS gamemode!";
+  outcome.classList.remove("accent");
+
+  // Reset the Play Button
+  document.getElementById("play").style.display = "inline-block";
+
+  // Reset the Reset Button text
+  document.getElementById("reset").innerText = "Reset Game";
+}
+
 function onClickReset() {
   const reset = document.getElementById("reset");
   if (reset) {
@@ -184,5 +228,6 @@ function checkTheme() {
   }
 }
 
+onClickReset();
 onClickTheme();
 checkTheme();
