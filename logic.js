@@ -126,6 +126,14 @@
  * Overall Logic Flow:
  * onClickPlay()
  */
+function playGame() {
+  const choices = document.querySelectorAll("#choices button");
+  choices.forEach((playerChoice) => {
+    playerChoice.removeAttribute("disabled");
+    playerChoice.addEventListener("click", playerChoiceEvent);
+  });
+}
+
 function openDisplay() {
   const figures = document.querySelectorAll(".figureContainer");
   figures.forEach((figure) => {
