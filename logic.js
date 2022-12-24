@@ -126,6 +126,29 @@
  * Overall Logic Flow:
  * onClickPlay()
  */
+function declareEnd() {
+  const playerScore = document.getElementById("player-counter").innerText;
+  const computerScore = document.getElementById("computer-counter").innerText;
+  const victory = "You won! The computer lost to you.";
+  const draw = "You tied! The computer tied you.";
+  const loss = "You lost! The computer beat you.";
+  let finalOutcome = document.getElementById("outcome");
+  finalOutcome.classList.add("accent");
+  switch (ofGameMode) {
+    case "first to":
+      if (playerScore === "5") { finalOutcome.innerText = victory; }
+      else if (computerScore === "5") { finalOutcome.innerText = loss; }
+      break;
+    case "best of":
+      if (+playerScore > +computerScore) { finalOutcome.innerText = victory; }
+      else if (+playerScore === +computerScore) { finalOutcome.innerText = draw; }
+      else if (+playerScore < +computerScore) { finalOutcome.innerText = loss; }
+  }
+
+  const resetBtn = document.getElementById("reset");
+  resetBtn.innerText = "Play Again";
+}
+
 function disablePlayerChoices() {
   const choices = document.querySelectorAll("#choices button");
   choices.forEach((playerChoice) => {
