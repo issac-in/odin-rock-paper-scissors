@@ -126,6 +126,33 @@
  * Overall Logic Flow:
  * onClickPlay()
  */
+function checkSelectedMode() {
+  const play = document.getElementById("play");
+  const firstTo = document.getElementById("first-to");
+  const bestOf = document.getElementById("best-of");
+  const outcome = document.getElementById("outcome");
+
+  if (!(firstTo.checked || bestOf.checked)) {
+    outcome.innerText = "Please select a gamemode first!"
+    outcome.classList.add("accent");
+  }
+  else {
+    play.style.display = "none";
+    firstTo.disabled = true;
+    bestOf.disabled = true;
+    outcome.classList.remove("accent");
+    openDisplay();
+    if (firstTo.checked) {
+      ofGameMode = "first to";
+    }
+    else if (bestOf.checked) {
+      ofGameMode = "best of";
+    }
+    outcome.innerText = `Complete the ${ofGameMode} five game.`;
+    playGame();
+  }
+}
+
 function onClickPlay() {
   const play = document.getElementById("play");
   if (play) {
