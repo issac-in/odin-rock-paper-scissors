@@ -126,6 +126,17 @@
  * Overall Logic Flow:
  * onClickPlay()
  */
+function openDisplay() {
+  const figures = document.querySelectorAll(".figureContainer");
+  figures.forEach((figure) => {
+    console.log(figure.style.display);
+    figure.style.display = "flex";
+  });
+  const choices = document.getElementById("choices");
+  console.log(choices.style.display);
+  choices.style.display = "flex";
+}
+
 function checkSelectedMode() {
   const play = document.getElementById("play");
   const firstTo = document.getElementById("first-to");
