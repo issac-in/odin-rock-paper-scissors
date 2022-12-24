@@ -123,22 +123,8 @@
  *    4D. Check if the end of a game has been achieved
  *      4DA. If it has, declare the end of the game, and disable player choices again.
  * 
- * RPS Logic Flow from Reset Button
- * 1. Click the Reset button to trigger, onClickReset(), which addEventListener to run
- * 2. resetRPS(), which basically needs to ensure everything is forcibly cleared and hidden
- *    2A. Reset the gamemode radio buttons
- *    2B. Reset the game scores
- *    2C. Reset the game outcomes
- *    2D. Reset the game display
- *    2E. Disable player controls
- *    2F. Remove event listeners
- *    2G. Reset the final outcome text
- *    2H. Reset the play button
- *    2I. Reset the reset button text
- * 
  * Overall Logic Flow:
  * onClickPlay()
- * onClickReset()
  */
 function resetRPS() {
   // Reset the Game Mode Buttons
