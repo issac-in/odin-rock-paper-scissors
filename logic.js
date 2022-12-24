@@ -126,6 +126,23 @@
  * Overall Logic Flow:
  * onClickPlay()
  */
+let ofGameMode; // CRITICAL VARIABLE for multiple functions, do not delete!
+
+function playRound(playerChoice, computerChoice) {
+  let roundOutcome;
+  switch (ofGameMode) {
+    case "first to":
+      roundOutcome = isTie(playerChoice, computerChoice) ? 0 : noTieLogic(playerChoice, computerChoice);
+      break;
+    case "best of":
+      roundOutcome = isTie(playerChoice, computerChoice) ? 0 : noTieLogic(playerChoice, computerChoice);
+      break;
+    default:
+      console.error("Invalid ofGameMode given");
+  }
+  return roundOutcome;
+}
+
 function updateScores(roundOutcome) {
   let playerScore = document.getElementById("player-counter");
   let computerScore = document.getElementById("computer-counter");
