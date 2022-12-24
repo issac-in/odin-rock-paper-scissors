@@ -103,29 +103,6 @@
 // game();
 
 // ABOVE IS OG CODE - BELOW IS REWORK TERRITORY
-/**
- * RPS Logic Flow from Play Button
- * 1. Click the Play button to trigger, onClickPlay(),which addEventListener to run
- * 2. checkSelectedMode(), which will check the status of the gamemode radio buttons
- *    2A. If neither are checked, let user know to select gamemode first
- *    2B. If one of them is checked, get the display ready for the game, and disable the radio buttons
- *    2C. Then, depending on the gamemode checked, update the resultsOutcome accordingly
- *      2CA. I should probably keep track of gamemode as a global variable
- *    2D. Then, run the game via playGame().
- * 3. In playGame(), activate the player controls for rock, paper, scissors
- *    3A. Then, addEventListener to each control to trigger playerChoiceEvent
- * 4. playerChoiceEvent() should pull the control's id to determine player choice
- *    4A. And pull computer's choice via random choice
- *    4B. Then, get the round outcome from playRound(playerChoice, computerChoice)
- *      4BA. This will utilize isTie() and noTieLogic()
- *    4C. Based on round outcome, update numerical score and outcome strings
- *      4CA. Two separate functioms, updateScores() & updateOutcomes()
- *    4D. Check if the end of a game has been achieved
- *      4DA. If it has, declare the end of the game, and disable player choices again.
- * 
- * Overall Logic Flow:
- * onClickPlay()
- */
 let ofGameMode; // CRITICAL VARIABLE for multiple functions, do not delete!
 
 function getComputerChoice() {
