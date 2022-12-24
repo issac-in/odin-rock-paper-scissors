@@ -136,19 +136,9 @@
  *    2H. Reset the play button
  *    2I. Reset the reset button text
  * 
- * RPS Logic Flow from Theme Button
- * 1. Click the Theme button to trigger onClickTheme(), which addEventListener to run
- * 2. switchTheme(), which will default to dark mode color scheme first, but if clicked
- * will change to the light mode color scheme, and change the theme icon accordingly
- * 
- * As an additional plan, which is to store the preferred theme of user in localStorage
- * and set the color scheme accordingly on load
- * 
  * Overall Logic Flow:
  * onClickPlay()
  * onClickReset()
- * onClickTheme()
- * loadPreferredTheme()
  */
 function switchTheme() {
   const imgSwitch = document.getElementById("theme-switch");
