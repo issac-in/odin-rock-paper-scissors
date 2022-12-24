@@ -126,6 +126,23 @@
  * Overall Logic Flow:
  * onClickPlay()
  */
+function updateScores(roundOutcome) {
+  let playerScore = document.getElementById("player-counter");
+  let computerScore = document.getElementById("computer-counter");
+  switch (roundOutcome) {
+    case 1:
+      playerScore.innerText = parseInt(playerScore.innerText) + 1;
+      break;
+    case 0:
+      break;
+    case -1:
+      computerScore.innerText = parseInt(computerScore.innerText) + 1;
+      break;
+    default:
+      console.error("Invalid roundOutcome given.");
+  }
+}
+
 function updateOutcomes(roundOutcome) {
   let playerOutcomes = document.getElementById("playerOutcomes");
   let computerOutcomes = document.getElementById("computerOutcomes");
