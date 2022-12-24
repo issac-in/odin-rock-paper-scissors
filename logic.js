@@ -126,6 +126,15 @@
  * Overall Logic Flow:
  * onClickPlay()
  */
+function onClickPlay() {
+  const play = document.getElementById("play");
+  if (play) {
+    play.addEventListener("click", () => {
+      checkSelectedMode();
+    });
+  }
+}
+
 function resetRPS() {
   // Reset the Game Mode Buttons
   document.getElementById("first-to").removeAttribute("disabled");
@@ -214,6 +223,7 @@ function checkTheme() {
   }
 }
 
+onClickPlay();
 onClickReset();
 onClickTheme();
 checkTheme();
