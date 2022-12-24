@@ -171,6 +171,41 @@ main .modeList li label {
   margin: 8px;
 }
 
+main .results {
+  /* Display & Box Model */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+main .results .accent {
+  /* Color */
+  color: var(--accent-color);
+
+  /* Text */
+  font-weight: 900;
+}
+
+main .results button {
+  /* Display & Box Model */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 120px;
+  height: 48px;
+  border-radius: 12px;
+  margin: 8px;
+
+  /* Color */
+  background-color: var(--secondary-color);
+  border: solid var(--font-color);
+  
+  /* Text */
+  font-size: 16px;
+}
+
 /* FOOTER */
 footer {
   /* Positioning - Temporary to just see it */ 
@@ -221,6 +256,11 @@ footer {
     /* Color */
     box-shadow: 0 0 0.5rem var(--font-color);
   }
+
+  main .results button:active {
+    /* Color */
+    box-shadow: 0 0 0.5rem var(--font-color);
+  }
 }
 
 @media screen and (pointer: fine) {
@@ -230,6 +270,11 @@ footer {
   }
 
   main .modeList li:hover {
+    /* Color */
+    box-shadow: 0 0 0.5rem var(--font-color);
+  }
+
+  main .results button:hover {
     /* Color */
     box-shadow: 0 0 0.5rem var(--font-color);
   }
