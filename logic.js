@@ -126,6 +126,21 @@
  * Overall Logic Flow:
  * onClickPlay()
  */
+function isEnd() {
+  switch (ofGameMode) {
+    case "first to":
+      const playerScore = document.getElementById("player-counter").innerText;
+      const computerScore = document.getElementById("computer-counter").innerText;
+      if (playerScore === "5" || computerScore === "5") { return true; }
+      break;
+    case "best of":
+      const playerOutcomes = document.getElementById("playerOutcomes").innerText;
+      const computerOutcomes = document.getElementById("computerOutcomes").innerText;
+      if (!(playerOutcomes.includes("•")) && !(computerOutcomes.includes("•"))) { return true; }
+  }
+  return false;
+}
+
 function declareEnd() {
   const playerScore = document.getElementById("player-counter").innerText;
   const computerScore = document.getElementById("computer-counter").innerText;
