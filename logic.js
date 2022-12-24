@@ -126,6 +126,13 @@
  * Overall Logic Flow:
  * onClickPlay()
  */
+function disablePlayerChoices() {
+  const choices = document.querySelectorAll("#choices button");
+  choices.forEach((playerChoice) => {
+    playerChoice.setAttribute("disabled", true);
+  });
+}
+
 function playerChoiceEvent() {
   const computerChoice = getComputerChoice();
   let roundOutcome = playRound(this.id, computerChoice);
