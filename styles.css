@@ -10,6 +10,25 @@
   --player-color: rgb(0, 219, 172);
   --disabled-color: rgb(126, 130, 135);
   --play-bg-color:rgb(234, 233, 233);
+  --logo-filter: invert(11%) sepia(5%) saturate(3466%) hue-rotate(177deg) brightness(92%) contrast(86%); /* Logo appears like #222831 by default */
+  --switch-filter: invert(100%) sepia(0%) saturate(3120%) hue-rotate(41deg) brightness(118%) contrast(87%); /* Switch appears like #EEEEEE by default */
+  --switch-hover-filter: invert(95%) sepia(51%) saturate(1663%) hue-rotate(310deg) brightness(105%) contrast(102%); /* Switch hover appears like #FFD369 by default */
+  --figure-img-filter: invert(100%) sepia(0%) saturate(3120%) hue-rotate(41deg) brightness(118%) contrast(87%); /* Figure images appear like #EEEEEE by default */
+}
+
+[data-theme="light"] {
+  --primary-color: #EEEEEE;
+  --secondary-color: rgb(126, 130, 135);
+  --tertiary-color: rgba(126, 130, 135, 0.125);
+  --font-color: rgb(34, 40, 49);
+  --accent-color: rgb(255, 136, 17);
+  --player-color: rgb(109, 163, 77);
+  --disabled-color: rgba(126, 130, 135, 0.314);
+  --play-bg-color: rgba(107, 108, 110, 0.941);
+  --logo-filter: invert(100%) sepia(0%) saturate(3120%) hue-rotate(41deg) brightness(118%) contrast(87%); /* Logo appears like #EEEEEE by default */
+  --switch-filter: invert(11%) sepia(5%) saturate(3466%) hue-rotate(177deg) brightness(92%) contrast(86%); /* Switch appears like #222831 by default*/
+  --switch-hover-filter: invert(68%) sepia(52%) saturate(4509%) hue-rotate(350deg) brightness(101%) contrast(102%); /* Switch hover appears like #ff8811 by default */
+  --figure-img-filter: invert(11%) sepia(5%) saturate(3466%) hue-rotate(177deg) brightness(92%) contrast(86%); /* Figure images appear like #222831 by default */
 }
 
 /* GENERAL & SHARED CSS */
@@ -28,6 +47,11 @@
 }
 
 /* HEADINGS */
+h3 {
+  /* Text */
+  font-size: 32px;
+}
+
 h2 {
   /* Display & Box Model */
   margin-top: 12px;
@@ -171,6 +195,109 @@ main .modeList li label {
   margin: 8px;
 }
 
+main .game {
+  /* Display & Box Model */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+main .game .playButton {
+  /* Display & Box Model */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  margin: 32px;
+
+  /* Color */
+  background-color: transparent;
+  border: transparent;
+}
+
+main .game .playButton img {
+  /* Display & Box Model */
+  border-radius: 50%;
+
+  /* Color */
+  filter: var(--switch-filter);
+  background-color: var(--play-bg-color);
+}
+
+main .game .figureContainer {
+  /* Display & Box Model */
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 16px;
+
+  /* Color */
+  border: solid var(--secondary-color) 4px;
+}
+
+main .game figure {
+  /* Display & Box Model */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+  gap: 16px;
+  width: 240px;
+  padding: 8px;
+  
+  /* Color */
+  background-color: var(--tertiary-color);
+}
+
+main .game figure img {
+  /* Display & Box Model */
+  width: 32px;
+  height: 32px;
+
+  /* Color */
+  filter: var(--figure-img-filter);
+}
+
+main .game figure .player {
+  /* Color */
+  color: var(--player-color);
+}
+
+main .game figure .computer {
+  /* Color */
+  color: var(--accent-color);
+}
+
+main .game ul {
+  /* Display & Box Model */
+  display: none;
+  margin-top: 8px;
+}
+
+main .game ul button {
+  /* Display & Box Model */
+  padding: 10px;
+  border-radius: 16px;
+
+  /* Color */
+  border: solid var(--secondary-color) 6px;
+}
+
+main .game ul button:disabled {
+  /* Color */
+  background-color: var(--disabled-color);
+}
+
+main .game ul img {
+  /* Display & Box Model */
+  width: 50px;
+  height: 50px;
+}
+
 main .results {
   /* Display & Box Model */
   display: flex;
@@ -208,10 +335,6 @@ main .results button {
 
 /* FOOTER */
 footer {
-  /* Positioning - Temporary to just see it */ 
-  position: fixed;
-  bottom: 0%;
-
   /* Display & Box Model */
   display: flex;
   justify-content: center;
@@ -257,6 +380,16 @@ footer {
     box-shadow: 0 0 0.5rem var(--font-color);
   }
 
+  main .game .playButton:active {
+    /* Color */
+    box-shadow: 0 0 0.5rem var(--font-color);
+  }
+
+  main .game ul button:active {
+    /* Color */ 
+    box-shadow: 0 0 0.5rem var(--font-color);
+  }
+
   main .results button:active {
     /* Color */
     box-shadow: 0 0 0.5rem var(--font-color);
@@ -271,6 +404,16 @@ footer {
 
   main .modeList li:hover {
     /* Color */
+    box-shadow: 0 0 0.5rem var(--font-color);
+  }
+
+  main .game .playButton:hover {
+    /* Color */
+    box-shadow: 0 0 0.5rem var(--font-color);
+  }
+
+  main .game ul button:hover {
+    /* Color */ 
     box-shadow: 0 0 0.5rem var(--font-color);
   }
 
