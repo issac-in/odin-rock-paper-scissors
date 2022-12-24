@@ -140,6 +140,15 @@
  * onClickPlay()
  * onClickReset()
  */
+function onClickReset() {
+  const reset = document.getElementById("reset");
+  if (reset) {
+    reset.addEventListener("click", () => {
+      resetRPS();
+    });
+  }
+}
+
 function switchTheme() {
   const imgSwitch = document.getElementById("theme-switch");
   if (imgSwitch.alt === "dark mode icon") {
