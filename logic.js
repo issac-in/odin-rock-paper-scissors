@@ -150,3 +150,27 @@
  * onClickTheme()
  * loadPreferredTheme()
  */
+function switchTheme() {
+  const imgSwitch = document.getElementById("theme-switch");
+  if (imgSwitch.alt === "dark mode icon") {
+    document.documentElement.setAttribute("data-theme", "light");
+    localStorage.setItem("theme", "light");
+    imgSwitch.src = "./assets/icons8-sun.svg";
+    imgSwitch.alt = "light mode icon";
+  }
+  else {
+    document.documentElement.setAttribute("data-theme", "dark");
+    localStorage.setItem("theme", "dark");
+    imgSwitch.src = "./assets/icons8-moon-phase.svg";
+    imgSwitch.alt = "dark mode icon";
+  }
+}
+
+function onClickTheme() {
+  const imgSwitch = document.getElementById("theme-switch");
+  if (imgSwitch) {
+    imgSwitch.addEventListener('click', switchTheme);  
+  }
+}
+
+onClickTheme();

@@ -76,7 +76,7 @@ describe("Rock Paper Scissors page", () => {
     cy.visit("/");
   });
 
-  it.skip("1. prevents you from playing the game before selecting a gamemode", () => {
+  it("1. prevents you from playing the game before selecting a gamemode", () => {
     cy.get(resultsOutcome)
       .contains("Complete a RPS gamemode!")
       .and("not.have.class", "accent");
@@ -102,7 +102,7 @@ describe("Rock Paper Scissors page", () => {
     cy.get(bestOfMode).should("be.checked");
   });
 
-  it.skip("3. lets you start the gamemode 'first to five' wins", () => {
+  it("3. lets you start the gamemode 'first to five' wins", () => {
     cy.get(firstToMode).click();
 
     cy.get(playButton).click();
@@ -112,7 +112,7 @@ describe("Rock Paper Scissors page", () => {
       .and("not.have.class", "accent");
   });
 
-  it.skip("\u30003A. displays correct result at the end of a first to five",() => {
+  it("\u30003A. displays correct result at the end of a first to five",() => {
     cy.get(firstToMode).click();
 
     cy.get(playButton).click();
@@ -124,7 +124,7 @@ describe("Rock Paper Scissors page", () => {
     evaluateFirstTo();
   });
 
-  it.skip("4. lets you start the gamemode 'best of five' wins", () => {
+  it("4. lets you start the gamemode 'best of five' wins", () => {
     cy.get(bestOfMode).click();
 
     cy.get(playButton).click();
@@ -134,7 +134,7 @@ describe("Rock Paper Scissors page", () => {
       .and("not.have.class", "accent");
   });
 
-  it.skip("\u30004A. displays correct result at the end of a best of five",() => {
+  it("\u30004A. displays correct result at the end of a best of five",() => {
     cy.get(bestOfMode).click();
 
     cy.get(playButton).click();
@@ -146,7 +146,7 @@ describe("Rock Paper Scissors page", () => {
     evaluateBestOf();
   });
 
-  it.skip("5. reset button resets gamemode selection", () => {
+  it("5. reset button resets gamemode selection", () => {
     cy.get(bestOfMode).click();
 
     cy.get(bestOfMode).should("be.checked");
@@ -158,7 +158,7 @@ describe("Rock Paper Scissors page", () => {
     cy.get(firstToMode).should("not.be.checked");
   });
 
-  it.skip("\u30005A. reset button resets score & hides game", () => {
+  it("\u30005A. reset button resets score & hides game", () => {
     cy.get(bestOfMode).click();
     
     cy.get(playButton).click();
@@ -192,7 +192,7 @@ describe("Rock Paper Scissors page", () => {
     confirmDotFrequency(computerOutcomes, 5);
   });
 
-  it.skip("\u30005B. reset button changes to 'play again' at the end of the game, keeping same functionality", () => {
+  it("\u30005B. reset button changes to 'play again' at the end of the game, keeping same functionality", () => {
     cy.get(firstToMode).click();
 
     cy.get(playButton).click();
@@ -229,7 +229,7 @@ describe("Rock Paper Scissors page", () => {
     cy.get("[data-cy='header']").and("have.css", "display", "none")
   });
 
-  it.skip("7. changes between dark & light themes on click", () => {
+  it("7. changes between dark & light themes on click", () => {
     cy.get(bestOfMode).click();
 
     cy.get(playButton).click();
