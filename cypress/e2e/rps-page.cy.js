@@ -71,6 +71,23 @@ function evaluateBestOf() {
   });
 }
 
+/**
+ * 
+ * @param {*} outcomes 
+ * @param {*} expectedFrequency 
+ * 
+ * Given the data-cy string that matches to an outcome, check the
+ * related element's innerText for exactly as many dots as the
+ * given expectedFrequency.
+ */
+function confirmDotFrequency(outcomes, expectedFrequency) {
+  cy.get(`[data-cy='${outcomes}']`).then(($outcome) => {
+    const innerText = $outcome.text();
+    const dotLength = innerText.replaceAll(/[^•]/g, "").length;
+    assert.deepEqual(dotLength, expectedFrequency);
+  });
+}
+
 describe("Rock Paper Scissors page", () => {
   beforeEach(() => {
     cy.visit("/");
