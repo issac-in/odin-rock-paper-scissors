@@ -37,7 +37,42 @@
             </li>
           </ul>
         </section>
-        <div class="game"></div>
+        <div class="game">
+          <button class="playButton" id="play" data-cy="play-button">
+            <img src="./assets/icons8-circled-play.svg" alt="play button" width="72" height="72">
+          </button>
+          <div class="figureContainer" data-cy="game-display">
+            <figure>
+              <img src="./assets/icons8-account.svg" alt="player icon" width="72" height="72">
+              <h3 class="player" id="player-counter" data-cy="player-score">0</h3>
+              <p class="player" id="playerOutcomes" data-cy="player-outcomes">• &nbsp;&nbsp; • &nbsp;&nbsp; • &nbsp;&nbsp; •
+                &nbsp;&nbsp; • &nbsp;&nbsp;</p>
+            </figure>
+            <figure>
+              <img src="./assets/icons8-monitor.svg" alt="computer icon" width="72" height="72">
+              <h3 class="computer" id="computer-counter" data-cy="computer-score">0</h3>
+              <p class="computer" id="computerOutcomes" data-cy="computer-outcomes">• &nbsp;&nbsp; • &nbsp;&nbsp; • &nbsp;&nbsp; • &nbsp;&nbsp;
+                • &nbsp;&nbsp;</p>
+            </figure>
+          </div>
+          <ul id="choices" data-cy="player-controls">
+            <li>
+              <button id="rock" data-cy="rock-button" disabled>
+                <img src="./assets/icons8-rock.svg" alt="rock button">
+              </button>
+            </li>
+            <li>
+              <button id="paper" data-cy="paper-button" disabled>
+                <img src="./assets/icons8-sheet-of-paper.svg" alt="paper button">
+              </button>
+            </li>
+            <li>
+              <button id="scissors" data-cy="scissors-button" disabled>
+                <img src="./assets/icons8-scissors.svg" alt="scissors button">
+              </button>
+            </li>
+          </ul>
+        </div>
         <section class="results">
           <h2>Results</h2>
           <p id="outcome" data-cy="results-outcome">Complete a RPS gamemode!</p>
