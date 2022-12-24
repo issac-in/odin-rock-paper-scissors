@@ -128,6 +128,22 @@
  */
 let ofGameMode; // CRITICAL VARIABLE for multiple functions, do not delete!
 
+function getComputerChoice() {
+  let computerSelection;
+  let randomNumber = (Math.floor(Math.random() * 3)) + 1;
+  switch (randomNumber) {
+    case 1:
+      computerSelection = "rock";
+      break;
+    case 2:
+      computerSelection = "paper";
+      break;
+    case 3:
+      computerSelection = "scissors";
+  }
+  return computerSelection;
+}
+
 function isTie(playerChoice, computerChoice) {
   return playerChoice === computerChoice;
 }
