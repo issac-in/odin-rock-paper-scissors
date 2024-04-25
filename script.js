@@ -4,6 +4,9 @@ const ROCK = "rock";
 const PAPER = "paper";
 const SCISSORS = "scissors";
 
+let computerScore = 0;
+let humanScore = 0;
+
 function getComputerChoice() {
     let randomNum = Math.floor(Math.random() * 3);
     let computerChoice = "";
