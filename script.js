@@ -47,7 +47,6 @@ function getHumanChoice() {
                 keepGoing = false;
                 break;
             case "cancel":
-                console.warn("User cancelled their choice.");
                 keepGoing = false;
                 break;
             default:
@@ -80,7 +79,13 @@ function playGame() {
     }
 
     for (let round = 0; round < 5; round++) {
-        playRound(getHumanChoice(), getComputerChoice());
+        let humanSelection = getHumanChoice();
+        if (!humanSelection) {
+            console.warn("Human forfeited - computer wins by default.");
+            return;
+        } else {
+            playRound(humanSelection, getComputerChoice());
+        }
     }
 
     let scoreRecord = `${humanScore} to ${computerScore}`;
